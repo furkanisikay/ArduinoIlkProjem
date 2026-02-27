@@ -106,7 +106,6 @@ namespace ArduinoIlkProjem
                 {
                     try { ctrl.Invoke((MethodInvoker)delegate { islemler(); }); }
                     catch (ObjectDisposedException) { }
-                    catch (Exception) { throw; }
                 }
                 else { islemler(); }
             }

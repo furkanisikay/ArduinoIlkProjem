@@ -27,7 +27,7 @@ msbuild ArduinoIlkProjem.sln /p:Configuration=Release
 Derleme sonrası uygulama:
 
 ```bash
-ArduinoIlkProjem\\bin\\Release\\ArduinoIlkProjem.exe
+ArduinoIlkProjem\bin\Release\ArduinoIlkProjem.exe
 ```
 
 ## Ortam Kurulumu
@@ -44,7 +44,7 @@ ArduinoIlkProjem\\bin\\Release\\ArduinoIlkProjem.exe
 ## Refactoring (Öncelikli 3 Adım)
 1. **Seri port işlemlerini servis katmanına ayırın:** `Form1` içindeki bağlantı/aç-kapat/yazma mantığını ayrı bir sınıfa taşıyarak UI ile haberleşme katmanını ayrıştırın.
 2. **Durum yönetimini sabit metinlerden çıkarın:** `"Bağlan"`, `"Bağlantıyı Kes"`, `"Çalıştır"` gibi metin bazlı kontroller yerine enum tabanlı bir durum modeli kullanın.
-3. **Hata yönetimini iyileştirin:** `throw ex;` yerine `throw;` kullanın, seri port açma/kapama işlemlerini `try/catch` ile kullanıcıya anlamlı mesaj verecek şekilde yönetin.
+3. **Hata yönetimini iyileştirin:** `throw ex;` yerine `throw;` kullanın; ek olarak seri port açma/kapama işlemleri için kullanıcıya anlamlı mesajlar üretecek `try/catch` akışı planlayın.
 
 ## Katkı
 Katkı süreçleri için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
