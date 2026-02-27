@@ -36,16 +36,6 @@ ArduinoIlkProjem\bin\Release\ArduinoIlkProjem.exe
 3. Uygulamayı açtıktan sonra port seçip **Bağlan** butonuna tıklayın.
 4. Arduino tarafı, uygulamanın gönderdiği `1`/`0` komutlarını işleyecek şekilde seri haberleşme (aynı baud rate) kullanmalıdır.
 
-## Kod Denetimi ve Güvenlik
-- Depoda hardcoded şifre, API anahtarı veya yerel kullanıcı yolu (örn. `C:\\Users\\...`) taraması yapılmıştır.
-- Tespit edilen kritik bir gizli bilgi bulunmamıştır.
-- İleride gizli bilgi eklenmesi gerekirse kaynak koda gömmek yerine ortam değişkeni yaklaşımı tercih edilmelidir.
-
-## Refactoring (Öncelikli 3 Adım)
-1. **Seri port işlemlerini servis katmanına ayırın:** `Form1` içindeki bağlantı/aç-kapat/yazma mantığını ayrı bir sınıfa taşıyarak UI ile haberleşme katmanını ayrıştırın.
-2. **Durum yönetimini sabit metinlerden çıkarın:** `"Bağlan"`, `"Bağlantıyı Kes"`, `"Çalıştır"` gibi metin bazlı kontroller yerine enum tabanlı bir durum modeli kullanın.
-3. **Hata yönetimini iyileştirin:** `throw ex;` yerine `throw;` kullanın; ek olarak seri port açma/kapama işlemleri için kullanıcıya anlamlı mesajlar üretecek `try/catch` akışı planlayın.
-
 ## Katkı
 Katkı süreçleri için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
 
