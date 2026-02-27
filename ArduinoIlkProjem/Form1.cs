@@ -57,7 +57,7 @@ namespace ArduinoIlkProjem
             Islem(pboxDurum, () => {
                 pboxBaglanti.BackColor = Color.Red;
             });
-            serialPort1.Close();
+            if (serialPort1.IsOpen) serialPort1.Close();
         }
 
         private void btnDurum_Click(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace ArduinoIlkProjem
             Islem(btnDurum, () => {
                 text = btnDurum.Text;
             });
-            serialPort1.Write((text == "Çalıştır") ? "1" : "0");
+            if (serialPort1.IsOpen) serialPort1.Write((text == "Çalıştır") ? "1" : "0");
             Islem(btnDurum, () => {
                 btnDurum.Enabled = false;
             });
@@ -106,7 +106,7 @@ namespace ArduinoIlkProjem
                 {
                     try { ctrl.Invoke((MethodInvoker)delegate { islemler(); }); }
                     catch (ObjectDisposedException) { }
-                    catch (Exception ex) { throw ex; }
+                    catch (Exception) { throw; }
                 }
                 else { islemler(); }
             }
